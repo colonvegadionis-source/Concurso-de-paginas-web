@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Proyecto Concurso Web</title>
+  <style>
+    /* 1. Definición de variables para los Modos */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1e293b;
+      --card-bg: #f8fafc;
+      --primary-color: #4f46e5;
+      --primary-hover: #4338ca;
+      --shadow-color: rgba(0, 0, 0, 0.05);
+      --nav-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f172a;
+      --text-color: #f1f5f9;
+      --card-bg: #1e293b;
+      --primary-color: #6366f1;
+      --primary-hover: #4f46e5;
+      --shadow-color: rgba(0, 0, 0, 0.4);
+      --nav-bg: #1e293b;
+    }
+
+    /* 2. Estilos Generales */
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* 3. Menú de Navegación (Navbar) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--nav-bg);
+      box-shadow: 0 2px 4px var(--shadow-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .btn-toggle {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-toggle:hover {
+      background: var(--primary-hover);
+    }
+
+    /* 4. Contenido Principal */
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1, h2 {
+      color: var(--text-color);
+    }
+
+    .image-container img {
+      max-width: 100%;
+      border-radius: 8px;
+      height: auto;
+    }
+
+    /* 5. Tarjetas */
+    .card {
+      background-color: var(--card-bg);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px var(--shadow-color);
+      margin-top: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px var(--shadow-color);
+    }
+
+    .btn-pro {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      margin-right: 10px;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-pro:hover {
+      background-color: var(--primary-hover);
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú de Navegación Superior -->
+  <header class="navbar">
+    <div class="logo">Mi Proyecto</div>
+    <ul class="nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Sobre mí</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <button id="theme-toggle" class="btn-toggle">🌙 Modo Oscuro</button>
+  </header>
+
+  <!-- Contenido de la Página -->
+  <main class="container">
+    <h1>¡Hola mundo!</h1>
+    <p>Bienvenidos.</p>
+
+    <h2>Hola, esta es mi imagen</h2>
+    <div class="descarga12.jpeg">
+      <!-- Asegúrate de cambiar 'tu-imagen.jpg' por el nombre real de tu archivo de imagen -->
+      <img src="descarga12.jpg" alt="Imagen del proyecto">
+    </div>
+
+    <div class="card">
+      <h2>Proyecto Innovador</h2>
+      <p>Estamos para ayudar.</p>
+      <button class="btn-pro">Saber más</button>
+      <button class="btn-pro">Participar</button>
+    </div>
+  </main>
+
+  <!-- Script para el Modo Oscuro -->
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+
+    toggleButton.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      
+      if (currentTheme === 'light') {
+        htmlElement.setAttribute('data-theme', 'dark');
+        toggleButton.textContent = '☀️ Modo Claro';
+      } else {
+        htmlElement.setAttribute('data-theme', 'light');
+        toggleButton.textContent = '🌙 Modo Oscuro';
+      }
+    });
+  </script>
+</body>
+</html>
